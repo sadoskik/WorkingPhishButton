@@ -75,9 +75,9 @@
     <Resources>
       <bt:Images>
         <!-- Green icon -->
-        <bt:Image id="green-icon-16" DefaultValue="https://appcommandicons.blob.core.windows.net/images/taskpane_16x.png" />
-        <bt:Image id="green-icon-32" DefaultValue="https://appcommandicons.blob.core.windows.net/images/taskpane_32x.png" />
-        <bt:Image id="green-icon-80" DefaultValue="https://appcommandicons.blob.core.windows.net/images/taskpane_80x.png" />
+        <bt:Image id="green-icon-16" DefaultValue="~remoteAppUrl/Images/hook16.png" />
+        <bt:Image id="green-icon-32" DefaultValue="~remoteAppUrl/Images/hook32.png" />
+        <bt:Image id="green-icon-80" DefaultValue="~remoteAppUrl/Images/hook80.png" />
       </bt:Images>
       <bt:Urls>
         <bt:Url id="readTaskPaneUrl" DefaultValue="~remoteAppUrl/App/Home/OutlookEmailForwarder.html" />
