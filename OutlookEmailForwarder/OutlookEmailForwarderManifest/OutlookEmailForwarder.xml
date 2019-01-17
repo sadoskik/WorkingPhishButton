@@ -10,7 +10,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Phishing Reporter" />
   <Description DefaultValue="Reports an Email to Georgia Tech Security Services for suspected phishing"/>
-  <IconUrl DefaultValue="https://localhost:44311/Users/Keaton/Dropbox/VB/OutlookEmailForwarderWeb/Images/hook64.png" />
+  <IconUrl DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook64.png?raw=true" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
@@ -22,7 +22,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="~remoteAppUrl/App/Home/OutlookEmailForwarder.html" />
+        <SourceLocation DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html?raw=true" />
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -76,13 +76,13 @@
     <Resources>
       <bt:Images>
         <!-- Green icon -->
-        <bt:Image id="green-icon-16" DefaultValue="~remoteAppUrl/Images/hook16.png" />
-        <bt:Image id="green-icon-32" DefaultValue="~remoteAppUrl/Images/hook32.png" />
-        <bt:Image id="green-icon-64" DefaultValue="~remoteAppUrl/Images/hook64.png" />
-        <bt:Image id="green-icon-80" DefaultValue="~remoteAppUrl/Images/hook80.png" />
+        <bt:Image id="green-icon-16" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook16.png?raw=true" />
+        <bt:Image id="green-icon-32" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook32.png?raw=true" />
+        <bt:Image id="green-icon-64" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook64.png?raw=true" />
+        <bt:Image id="green-icon-80" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook80.png?raw=true" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="readTaskPaneUrl" DefaultValue="~remoteAppUrl/App/Home/OutlookEmailForwarder.html" />
+        <bt:Url id="readTaskPaneUrl" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html?raw=true" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="GT Add-ins" />
