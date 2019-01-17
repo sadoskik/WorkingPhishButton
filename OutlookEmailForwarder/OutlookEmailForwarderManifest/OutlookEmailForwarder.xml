@@ -10,7 +10,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Phishing Reporter" />
   <Description DefaultValue="Reports an Email to Georgia Tech Security Services for suspected phishing"/>
-  <IconUrl DefaultValue="~remoteAppUrl/Images/hook64.png" />
+  <IconUrl DefaultValue="https://localhost:44311/Users/Keaton/Dropbox/VB/OutlookEmailForwarderWeb/Images/hook64.png" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
