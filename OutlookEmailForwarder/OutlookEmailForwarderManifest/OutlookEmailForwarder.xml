@@ -22,7 +22,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html?raw=true" />
+        <SourceLocation DefaultValue="http://127.0.0.1/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html" />
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -76,13 +76,13 @@
     <Resources>
       <bt:Images>
         <!-- Green icon -->
-        <bt:Image id="green-icon-16" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook16.png?raw=true" />
-        <bt:Image id="green-icon-32" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook32.png?raw=true" />
-        <bt:Image id="green-icon-64" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook64.png?raw=true" />
-        <bt:Image id="green-icon-80" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook80.png?raw=true" />
+        <bt:Image id="green-icon-16" DefaultValue="http://127.0.0.1/OutlookEmailForwarderWeb/Images/hook16.png" />
+        <bt:Image id="green-icon-32" DefaultValue="http://127.0.0.1/OutlookEmailForwarderWeb/Images/hook32.png" />
+        <bt:Image id="green-icon-64" DefaultValue="http://127.0.0.1/OutlookEmailForwarderWeb/Images/hook64.png" />
+        <bt:Image id="green-icon-80" DefaultValue="http://127.0.0.1/OutlookEmailForwarderWeb/Images/hook80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="readTaskPaneUrl" DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html?raw=true" />
+        <bt:Url id="readTaskPaneUrl" DefaultValue="http://127.0.0.1/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="GT Add-ins" />
