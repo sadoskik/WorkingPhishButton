@@ -10,7 +10,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Phishing Reporter" />
   <Description DefaultValue="Reports an Email to Georgia Tech Security Services for suspected phishing"/>
-  <IconUrl DefaultValue="https://appcommandicons.blob.core.windows.net/images/taskpane_32x.png" />
+  <IconUrl DefaultValue="~remoteAppUrl/Images/hook64.png" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
@@ -60,6 +60,7 @@
                     <bt:Image size="16" resid="green-icon-16" />
                     <bt:Image size="32" resid="green-icon-32" />
                     <bt:Image size="80" resid="green-icon-80" />
+                    
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <SourceLocation resid="readTaskPaneUrl" />
@@ -77,17 +78,18 @@
         <!-- Green icon -->
         <bt:Image id="green-icon-16" DefaultValue="~remoteAppUrl/Images/hook16.png" />
         <bt:Image id="green-icon-32" DefaultValue="~remoteAppUrl/Images/hook32.png" />
+        <bt:Image id="green-icon-64" DefaultValue="~remoteAppUrl/Images/hook64.png" />
         <bt:Image id="green-icon-80" DefaultValue="~remoteAppUrl/Images/hook80.png" />
       </bt:Images>
       <bt:Urls>
         <bt:Url id="readTaskPaneUrl" DefaultValue="~remoteAppUrl/App/Home/OutlookEmailForwarder.html" />
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="groupLabel" DefaultValue="Outlook Add-in Sample" />
+        <bt:String id="groupLabel" DefaultValue="GT Add-ins" />
 
         <!-- Read mode -->
-        <bt:String id="paneReadButtonLabel" DefaultValue="Forward Email" />
-        <bt:String id="paneReadSuperTipTitle" DefaultValue="Forward mail items to a list of user-defined email addresses with comments." />
+        <bt:String id="paneReadButtonLabel" DefaultValue="Report Phishing" />
+        <bt:String id="paneReadSuperTipTitle" DefaultValue="Opens a dialogue to forward the suspected email to the GT SOC." />
       </bt:ShortStrings>
       <bt:LongStrings>
         <!-- Read mode -->

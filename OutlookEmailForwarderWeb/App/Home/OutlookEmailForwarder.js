@@ -110,7 +110,7 @@
                     '      <m:Items>' +
                     '        <t:ForwardItem>' +
                     '          <t:Subject>' + '[Phishing][From: ' + mailbox.userProfile.emailAddress + ']' + '</t:Subject>' +
-                    '          <t:ToRecipients>' + "<t:Mailbox><t:EmailAddress>" + 'sadoskik@gmail.com' + "</t:EmailAddress></t:Mailbox>" + '</t:ToRecipients>' +
+                    '          <t:ToRecipients>' + "<t:Mailbox><t:EmailAddress>" + 'dsadoski3@gatech.com' + "</t:EmailAddress></t:Mailbox>" + '</t:ToRecipients>' +
                     '          <t:ReferenceItemId Id="' + item_id + '" ChangeKey="' + changeKey + '" />' +
                     '          <t:NewBodyContent BodyType="Text">' + comment + '</t:NewBodyContent>' +
                     '        </t:ForwardItem>' +
