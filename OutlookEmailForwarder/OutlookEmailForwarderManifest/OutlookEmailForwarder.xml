@@ -22,7 +22,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://raw.githubusercontent.com/sadoskik/WorkingPhishButton/developement/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html" />
+        <SourceLocation DefaultValue="https://sadoskik.github.io/WorkingPhishButton/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html" />
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -82,7 +82,7 @@
         <bt:Image id="green-icon-80" DefaultValue="https://127.0.0.1/OutlookEmailForwarderWeb/Images/hook80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="readTaskPaneUrl" DefaultValue="https://raw.githubusercontent.com/sadoskik/WorkingPhishButton/developement/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html" />
+        <bt:Url id="readTaskPaneUrl" DefaultValue="https://sadoskik.github.io/WorkingPhishButton/OutlookEmailForwarderWeb/App/Home/OutlookEmailForwarder.html" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="GT Add-ins" />
