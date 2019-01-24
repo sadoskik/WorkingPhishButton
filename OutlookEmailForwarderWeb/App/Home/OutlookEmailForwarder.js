@@ -108,6 +108,11 @@
                     '  <soap:Body>' +
                     '    <m:CreateItem MessageDisposition="SendAndSaveCopy">' +
                     '      <m:Items>' +
+                    '        <t:ItemAttachment>' +
+                    '          <t:Item>' +
+                    '             <t:ItemId>' + item_id + '</t:ItemId>' +
+                    '          </t:Item>' +
+                    '        </t:ItemAttachment>' +
                     '        <t:ForwardItem>' +
                     '          <t:Subject>' + '[Phishing][From: ' + mailbox.userProfile.emailAddress + ']' + '</t:Subject>' +
                     '          <t:ToRecipients>' + "<t:Mailbox><t:EmailAddress>" + 'sadoskik@gmail.com' + "</t:EmailAddress></t:Mailbox>" + '</t:ToRecipients>' +
