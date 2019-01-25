@@ -162,7 +162,7 @@
                 if (result == "NoError") {
                     try {
 
-                        app.showNotification("Thank you for taking this action. We will respond with our analysis soon.3" + xmlDoc.toString(), 'Georgia Tech SOC');
+                        app.showNotification("Thank you for taking this action. We will respond with our analysis soon.3" + JSON.stringify(xmlDoc), 'Georgia Tech SOC');
                     }
                     catch (e) {
                         app.showNotification('This is the error', e);
