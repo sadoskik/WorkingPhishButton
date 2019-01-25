@@ -108,16 +108,17 @@
                     '  <soap:Body>' +
                     '    <m:CreateItem MessageDisposition="SendAndSaveCopy">' +
                     '      <m:Items>' +
-                    '        <t:ItemAttachment>' +
-                    '          <t:Item>' +
-                    '             <t:ItemId>' + item_id + '</t:ItemId> ' +
-                    '          </t:Item>' +
-                    '        </t:ItemAttachment>' +
+                    '        
                     '        <t:ForwardItem>' +
                     '          <t:Subject>' + '[Phishing][From: ' + mailbox.userProfile.emailAddress + ']' + '</t:Subject>' +
                     '          <t:ToRecipients>' + "<t:Mailbox><t:EmailAddress>" + 'sadoskik@gmail.com' + "</t:EmailAddress></t:Mailbox>" + '</t:ToRecipients>' +
                     '          <t:ReferenceItemId Id="' + item_id + '" ChangeKey="' + changeKey + '" />' +
                     '          <t:NewBodyContent BodyType="Text">' + comment + '</t:NewBodyContent>' +
+                    '          <t: ItemAttachment>' +
+                    '           <t: Item>' +
+                    '             <t: ItemId>' + item_id + '</t: ItemId > ' +
+                    '           </t:Item>' +
+                    '        </t:ItemAttachment>' +
                     '        </t:ForwardItem>' +
                     '      </m:Items>' +
                     '    </m:CreateItem>' +
@@ -162,7 +163,7 @@
                 if (result == "NoError") {
                     try {
 
-                        app.showNotification("Thank you for taking this action. We will respond with our analysis soon.3" + JSON.stringify(xmlDoc), 'Georgia Tech SOC');
+                        app.showNotification("Thank you for taking this action. We will respond with our analysis soon.", 'Georgia Tech SOC');
                     }
                     catch (e) {
                         app.showNotification('This is the error', e);
