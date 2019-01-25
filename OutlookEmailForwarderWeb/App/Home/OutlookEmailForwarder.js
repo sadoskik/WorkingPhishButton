@@ -108,9 +108,9 @@
                     '  <soap:Body>' +
                     '    <m:CreateItem MessageDisposition="SendAndSaveCopy">' +
                     '      <m:Items>' +
-                    '        <t: ItemAttachment>' +
-                    '          <t: Item>' +
-                    '             <t: ItemId>' + item_id + '</t: ItemId> ' +
+                    '        <t:ItemAttachment>' +
+                    '          <t:Item>' +
+                    '             <t:ItemId>' + item_id + '</t:ItemId> ' +
                     '          </t:Item>' +
                     '        </t:ItemAttachment>' +
                     '        <t:ForwardItem>' +
