@@ -70,7 +70,7 @@
         var xmlDoc;
 
         if (asyncResult.error != null) {
-            app.showNotification("EWS Status", asyncResult.error.message);
+            app.showNotification("EWS Status2", asyncResult.error.message);
         }
         else {
             var response = asyncResult.value;
@@ -107,7 +107,7 @@
             ' </soap: Body >' +
             '</soap: Envelope >';
 
-            mailbox.makeEwsRequestAsync(soapToGetItemData, soapToGetItemDataCallback);
+            mailbox.makeEwsRequestAsync(soapToCreateAttachment, soapToGetItemDataCallback);
     }
 
         function soapToGetItemDataCallback(asyncResult) {
@@ -115,7 +115,7 @@
             var xmlDoc;
 
             if (asyncResult.error != null) {
-                app.showNotification("EWS Status", asyncResult.error.message);
+                app.showNotification("EWS Status3", asyncResult.error.message);
             }
             else {
                 var response = asyncResult.value;
@@ -129,7 +129,7 @@
                     xmlDoc.async = false;
                     xmlDoc.loadXML(response);
                 }
-                changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
+                
 
                 // Now that we have a ChangeKey value, we can use EWS to forward the mail item.
                 // The first thing we'll do is get an array of email addresses that the user
@@ -160,11 +160,6 @@
                     '          <t:ToRecipients>' + "<t:Mailbox><t:EmailAddress>" + 'sadoskik@gmail.com' + "</t:EmailAddress></t:Mailbox>" + '</t:ToRecipients>' +
                     '          <t:ReferenceItemId Id="' + item_id + '" ChangeKey="' + changeKey + '" />' +
                     '          <t:NewBodyContent BodyType="Text">' + comment + '</t:NewBodyContent>' +
-                    '          <t: ItemAttachment>' +
-                    '           <t: Item>' +
-                    '             <t: ItemId>' + item_id + '</t: ItemId > ' +
-                    '           </t:Item>' +
-                    '        </t:ItemAttachment>' +
                     '        </t:ForwardItem>' +
                     '      </m:Items>' +
                     '    </m:CreateItem>' +
@@ -187,7 +182,7 @@
             var xmlDoc;
 
             if (asyncResult.error != null) {
-                app.showNotification("EWS Status", asyncResult.error.message);
+                app.showNotification("EWS Status4", asyncResult.error.message);
             }
             else {
                 var response = asyncResult.value;
@@ -217,7 +212,7 @@
                     }
                 }
                 else {
-                    app.showNotification("EWS Status", "The following error code was recieved: " + result);
+                    app.showNotification("EWS Status5", "The following error code was recieved: " + result);
                 }
             }
         }
