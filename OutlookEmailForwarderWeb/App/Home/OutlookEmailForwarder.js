@@ -16,7 +16,7 @@
         // Variables that we'll use to communicate with EWS
         var item_id;
         var mailbox;
-
+        var changeKey;
         // This function handles the click event of the sendNow button.
         // It retrieves the current mail item, so that we can get its itemId property.
         // It also retrieves the mailbox, so that we can make an EWS request
@@ -56,13 +56,60 @@
                 '</soap:Envelope>';
 
             // The makeEwsRequestAsync method accepts a string of SOAP and a callback function
-            mailbox.makeEwsRequestAsync(soapToGetItemData, soapToGetItemDataCallback);
+            mailbox.makeEwsRequestAsync(soapToGetItemData, createAttachment);
         }
 
         // This function is the callback for the makeEwsRequestAsync method
         // In brief, it first checks for an error repsonse, but if all is OK
         // it then parses the XML repsonse to extract the ChangeKey attribute of the 
         // t:ItemId element.
+
+
+    function createAttachment(asyncResult) {
+        var parser;
+        var xmlDoc;
+
+        if (asyncResult.error != null) {
+            app.showNotification("EWS Status", asyncResult.error.message);
+        }
+        else {
+            var response = asyncResult.value;
+            if (window.DOMParser) {
+                var parser = new DOMParser();
+                xmlDoc = parser.parseFromString(response, "text/xml");
+            }
+            else // Older Versions of Internet Explorer
+            {
+                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async = false;
+                xmlDoc.loadXML(response);
+            }
+            changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
+
+        var soapToCreateAttachment =
+        '<soap: Envelope xmlns: xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+            '   xmlns: xsd="http://www.w3.org/2001/XMLSchema"' +
+            '  xmlns: soap="http://schemas.xmlsoap.org/soap/envelope/"' +
+            '   xmlns: t="http://schemas.microsoft.com/exchange/services/2006/types">' +
+            '   <soap: Body>' +
+            '<CreateAttachment xmlns="http://schemas.microsoft.com/exchange/services/2006/messages"' +
+            '        xmlns: t="http://schemas.microsoft.com/exchange/services/2006/types">' +
+            '<ParentItemId Id='+item_id+' ChangeKey=' + changeKey +' />' +
+            '   <Attachments>' +
+            '     <t: ItemAttachment>' +
+            '        <t: Name>An item attachment</t: Name>' +
+            '        <t: Item>' +
+            '          <t: ItemId>' + item_id + '</t: ItemId >' +
+            '        </t: Item >' +
+            '      </t: ItemAttachment >' +
+            '    </Attachments >' +
+            '  </CreateAttachment >' +
+            ' </soap: Body >' +
+            '</soap: Envelope >';
+
+            mailbox.makeEwsRequestAsync(soapToGetItemData, soapToGetItemDataCallback);
+    }
+
         function soapToGetItemDataCallback(asyncResult) {
             var parser;
             var xmlDoc;
@@ -82,7 +129,7 @@
                     xmlDoc.async = false;
                     xmlDoc.loadXML(response);
                 }
-                var changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
+                changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
 
                 // Now that we have a ChangeKey value, we can use EWS to forward the mail item.
                 // The first thing we'll do is get an array of email addresses that the user
@@ -108,7 +155,6 @@
                     '  <soap:Body>' +
                     '    <m:CreateItem MessageDisposition="SendAndSaveCopy">' +
                     '      <m:Items>' +
-                    '        
                     '        <t:ForwardItem>' +
                     '          <t:Subject>' + '[Phishing][From: ' + mailbox.userProfile.emailAddress + ']' + '</t:Subject>' +
                     '          <t:ToRecipients>' + "<t:Mailbox><t:EmailAddress>" + 'sadoskik@gmail.com' + "</t:EmailAddress></t:Mailbox>" + '</t:ToRecipients>' +
@@ -132,6 +178,7 @@
             }
         }
 
+        
         // This function is the callback for the above makeEwsRequestAsync method
         // In brief, it first checks for an error repsonse, but if all is OK
         // it then parses the XML repsonse to extract the m:ResponseCode value.
