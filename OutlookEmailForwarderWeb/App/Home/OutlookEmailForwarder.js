@@ -58,7 +58,7 @@ Office.initialize = function () {
                 '</soap:Envelope>';
 
             // The makeEwsRequestAsync method accepts a string of SOAP and a callback function
-            mailbox.makeEwsRequestAsync(soapToGetItemData, createAttachment);
+            mailbox.makeEwsRequestAsync(soapToGetItemData, soapToGetItemDataCallback);
         }
 
         // This function is the callback for the makeEwsRequestAsync method
@@ -67,51 +67,7 @@ Office.initialize = function () {
         // t:ItemId element.
 
 
-    function createAttachment(asyncResult) {
-        var parser;
-        var xmlDoc;
-
-        if (asyncResult.error != null) {
-            app.showNotification("EWS Status2", asyncResult.error.message);
-        }
-        else {
-            var response = asyncResult.value;
-            if (window.DOMParser) {
-                var parser = new DOMParser();
-                xmlDoc = parser.parseFromString(response, "text/xml");
-            }
-            else // Older Versions of Internet Explorer
-            {
-                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-                xmlDoc.async = false;
-                xmlDoc.loadXML(response);
-            }
-            changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
-
-            var soapToCreateAttachment =
-                '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' +
-                '   xmlns:xsd="http://www.w3.org/2001/XMLSchema"' +
-                '  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"' +
-                '   xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">' +
-                '   <soap:Body>' +
-                '<CreateAttachment xmlns="http://schemas.microsoft.com/exchange/services/2006/messages"' +
-                '        xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">' +
-                '<ParentItemId Id=' + item_id + ' ChangeKey=' + changeKey + ' />' +
-                '   <Attachments>' +
-                '     <t:ItemAttachment>' +
-                '        <t:Name>' + 'An_item_attachment' + '</t:Name>' +
-                '        <t:Message>'+
-                '           <t:Subject>A message to attach</t: Subject>'+
-                '       </t:Message >'+
-                '      </t:ItemAttachment >' +
-                '    </Attachments >' +
-                '  </CreateAttachment >' +
-                ' </soap:Body >' +
-                '</soap:Envelope >';
-
-            mailbox.makeEwsRequestAsync(soapToCreateAttachment, soapToGetItemDataCallback);
-        }
-    }
+    
         function soapToGetItemDataCallback(asyncResult) {
             var parser;
             var xmlDoc;
@@ -131,7 +87,9 @@ Office.initialize = function () {
                     xmlDoc.async = false;
                     xmlDoc.loadXML(response);
                 }
-                
+
+                changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
+
                 //var attachmentId = xmlDoc.getElementsByTagName("t:AttachmentId");
 
                 // Now that we have a ChangeKey value, we can use EWS to forward the mail item.
@@ -146,28 +104,20 @@ Office.initialize = function () {
                 // along with its ChangeKey value that we have just determined near the top of this function.
                 // We also provide the XML fragment that we built in the loop above to specify the recipient addresses,
                 // and the comment that the user may have provided in the Comment: text box
-                var soapToForwardItem = '<?xml version="1.0" encoding="utf-8"?>' +
-                    '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' +
-                    '               xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages"' +
-                    '               xmlns:xsd="http://www.w3.org/2001/XMLSchema"' +
-                    '               xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"' +
-                    '               xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">' +
-                    '  <soap:Header>' +
-                    '    <RequestServerVersion Version="Exchange2013" xmlns="http://schemas.microsoft.com/exchange/services/2006/types" soap:mustUnderstand="0" />' +
-                    '  </soap:Header>' +
-                    '  <soap:Body>' +
-                    '    <m:CreateItem MessageDisposition="SendAndSaveCopy">' +
-                    '      <m:Items>' +
-                    '        <t:ForwardItem>' +
-                    '          <t:Subject>' + '[Phishing][From: ' + mailbox.userProfile.emailAddress + ']' + '</t:Subject>' +
-                    '          <t:ToRecipients>' + "<t:Mailbox><t:EmailAddress>" + 'sadoskik@gmail.com' + "</t:EmailAddress></t:Mailbox>" + '</t:ToRecipients>' +
-                    '          <t:ReferenceItemId Id="' + item_id + '" ChangeKey="' + changeKey + '" />' +
-                    '          <t:NewBodyContent BodyType="Text">' + comment + '</t:NewBodyContent>' +
-                    '        </t:ForwardItem>' +
-                    '      </m:Items>' +
-                    '    </m:CreateItem>' +
-                    '  </soap:Body>' +
-                    '</soap:Envelope>';
+                var soapToForwardItem =
+                    '<soap:Envelope xmlns: xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+                    '       xmlns:xsd="http://www.w3.org/2001/XMLSchema"' +
+                    '       xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"' +
+                    '       xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">' +
+                    '   <soap:Body>' +
+                    '       <SendItem xmlns="http://schemas.microsoft.com/exchange/services/2006/messages"' +
+                    '            SaveItemToFolder="true">' +
+                    '           <ItemIds>' +
+                    '                <t:ItemId Id="' + item_id + '" ChangeKey="' + changeKey + '" />' +
+                    '           </ItemIds>' +
+                    '       </SendItem>' +
+                    '   </soap:Body>' +
+                    '</soap:Envelope >';
 
                 // As before, the makeEwsRequestAsync method accepts a string of SOAP and a callback function.
                 // The only difference this time is that the body of the SOAP message requests that the item
