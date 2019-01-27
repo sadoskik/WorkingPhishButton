@@ -113,7 +113,7 @@ Office.initialize = function () {
                     '       <SendItem xmlns="http://schemas.microsoft.com/exchange/services/2006/messages"' +
                     '            SaveItemToFolder="true">' +
                     '           <ItemIds>' +
-                    '                <t:ItemId Id=' + item_id + ' ChangeKey=' + changeKey + ' />' +
+                    '                <t:ItemId Id="' + item_id + '" ChangeKey="' + changeKey + '" />' +
                     '           </ItemIds>' +
                     '       </SendItem>' +
                     '   </soap:Body>' +
