@@ -10,7 +10,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Phishing Reporter" />
   <Description DefaultValue="Reports an Email to Georgia Tech Security Services for suspected phishing"/>
-  <IconUrl DefaultValue="https://github.com/sadoskik/WorkingPhishButton/blob/developement/OutlookEmailForwarderWeb/Images/hook64.png?raw=true" />
+  <IconUrl DefaultValue="https://sadoskik.github.io/WorkingPhishButton/OutlookEmailForwarderWeb/Images/hook64.png" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
