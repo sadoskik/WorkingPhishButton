@@ -89,11 +89,11 @@ Office.initialize = function () {
             changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
 
             var soapToCreateAttachment =
-                '<soap: Envelope xmlns: xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+                '<soap:Envelope xmlns: xsi="http://www.w3.org/2001/XMLSchema-instance"' +
                 '   xmlns: xsd="http://www.w3.org/2001/XMLSchema"' +
                 '  xmlns: soap="http://schemas.xmlsoap.org/soap/envelope/"' +
                 '   xmlns: t="http://schemas.microsoft.com/exchange/services/2006/types">' +
-                '   <soap: Body>' +
+                '   <soap:Body>' +
                 '<CreateAttachment xmlns="http://schemas.microsoft.com/exchange/services/2006/messages"' +
                 '        xmlns: t="http://schemas.microsoft.com/exchange/services/2006/types">' +
                 '<ParentItemId Id=' + item_id + ' ChangeKey=' + changeKey + ' />' +
@@ -106,8 +106,8 @@ Office.initialize = function () {
                 '      </t: ItemAttachment >' +
                 '    </Attachments >' +
                 '  </CreateAttachment >' +
-                ' </soap: Body >' +
-                '</soap: Envelope >';
+                ' </soap:Body >' +
+                '</soap:Envelope >';
 
             mailbox.makeEwsRequestAsync(soapToCreateAttachment, soapToGetItemDataCallback);
         }
