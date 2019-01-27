@@ -18,7 +18,8 @@ Office.initialize = function () {
         // Variables that we'll use to communicate with EWS
         var item_id;
         var mailbox;
-        var changeKey;
+var changeKey;
+console.log(Office.context.mailbox.item.itemId);
         // This function handles the click event of the sendNow button.
         // It retrieves the current mail item, so that we can get its itemId property.
         // It also retrieves the mailbox, so that we can make an EWS request
@@ -114,7 +115,7 @@ Office.initialize = function () {
                     '       <SendItem xmlns="http://schemas.microsoft.com/exchange/services/2006/messages"' +
                     '            SaveItemToFolder="true">' +
                     '           <ItemIds>' +
-                    '                <t:ItemId Id="' + item_id + '=" ChangeKey="' + changeKey + '" />' +
+                    '                <t:ItemId Id="' + item_id + '" ChangeKey="' + changeKey + '" />' +
                     '           </ItemIds>' +
                     '       </SendItem>' +
                     '   </soap:Body>' +
