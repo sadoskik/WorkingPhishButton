@@ -28,7 +28,7 @@ var changeKey;
             var item = Office.context.mailbox.item;
             item_id = item.itemId;
             mailbox = Office.context.mailbox;
-            console.log(typeof item_id);
+            item_id = item_id.substring(0, 38) + '+' + item_id.substring(38);
 
 
             // The following string is a valid SOAP envelope and request for getting the properties
