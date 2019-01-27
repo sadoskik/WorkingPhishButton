@@ -28,7 +28,7 @@ var changeKey;
             var item = Office.context.mailbox.item;
             item_id = item.itemId;
             mailbox = Office.context.mailbox;
-            item_id = item_id.substring(0, 38) + '+' + item_id.substring(38);
+            
 
 
             // The following string is a valid SOAP envelope and request for getting the properties
@@ -87,7 +87,7 @@ var changeKey;
                     xmlDoc.async = false;
                     xmlDoc.loadXML(response);
                 }
-
+                item_id = item_id.substring(0, 38) + '+' + item_id.substring(38);
                 changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
                 console.log('changeKey:' + changeKey);
                 console.log('item_id:' + item_id);
