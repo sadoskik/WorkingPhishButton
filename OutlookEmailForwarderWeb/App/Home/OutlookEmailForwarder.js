@@ -99,10 +99,10 @@ Office.initialize = function () {
                 '<ParentItemId Id=' + item_id + ' ChangeKey=' + changeKey + ' />' +
                 '   <Attachments>' +
                 '     <t:ItemAttachment>' +
-                '        <t:Name>'+ 'An_item_attachment' + '</t:Name>' +
-                '        <t:Item>' +
-                '          <t:ItemId>' + item_id + '</t:ItemId >' +
-                '        </t:Item >' +
+                '        <t:Name>' + 'An_item_attachment' + '</t:Name>' +
+                '        <t:Message>'+
+                '           <t:Subject>A message to attach</t: Subject>'+
+                '       </t:Message >'+
                 '      </t:ItemAttachment >' +
                 '    </Attachments >' +
                 '  </CreateAttachment >' +
@@ -132,6 +132,7 @@ Office.initialize = function () {
                     xmlDoc.loadXML(response);
                 }
                 
+                //var attachmentId = xmlDoc.getElementsByTagName("t:AttachmentId");
 
                 // Now that we have a ChangeKey value, we can use EWS to forward the mail item.
                 // The first thing we'll do is get an array of email addresses that the user
