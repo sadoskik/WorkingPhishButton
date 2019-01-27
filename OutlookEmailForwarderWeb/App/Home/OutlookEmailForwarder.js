@@ -19,7 +19,6 @@ Office.initialize = function () {
         var item_id;
         var mailbox;
 var changeKey;
-console.log(Office.context.mailbox.item.itemId);
         // This function handles the click event of the sendNow button.
         // It retrieves the current mail item, so that we can get its itemId property.
         // It also retrieves the mailbox, so that we can make an EWS request
@@ -29,7 +28,7 @@ console.log(Office.context.mailbox.item.itemId);
             var item = Office.context.mailbox.item;
             item_id = item.itemId;
             mailbox = Office.context.mailbox;
-
+            console.log(typeof item_id);
 
 
             // The following string is a valid SOAP envelope and request for getting the properties
