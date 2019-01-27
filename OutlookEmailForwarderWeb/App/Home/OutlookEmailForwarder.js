@@ -1,17 +1,19 @@
 ﻿/*
 * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 */
-function start() {
+"use strict";
+Office.initialize = function () {
+    $(document).ready(function () {
+        app.initialize();
+        $('#report').click(function () { sendNow(); });
+    });
+};
+
     
-        "use strict";
+        
 
         // The Office initialize function must be run each time a new page is loaded
-        Office.initialize = function () {
-            $(document).ready(function () {
-                app.initialize();
-                $('#report').click(function () { sendNow(); });
-            });
-        };
+        
 
         // Variables that we'll use to communicate with EWS
         var item_id;
@@ -218,7 +220,7 @@ function start() {
         }
     
     
-}
+
 // *********************************************************
 //
 // Outlook-Add-in-ForwardEmail, https://github.com/OfficeDev/Outlook-Add-in-ForwardEmail
