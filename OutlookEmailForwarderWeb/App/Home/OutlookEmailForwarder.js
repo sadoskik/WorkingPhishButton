@@ -89,21 +89,21 @@ Office.initialize = function () {
             changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
 
             var soapToCreateAttachment =
-                '<soap:Envelope xmlns: xsi="http://www.w3.org/2001/XMLSchema-instance"' +
-                '   xmlns: xsd="http://www.w3.org/2001/XMLSchema"' +
-                '  xmlns: soap="http://schemas.xmlsoap.org/soap/envelope/"' +
-                '   xmlns: t="http://schemas.microsoft.com/exchange/services/2006/types">' +
+                '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+                '   xmlns:xsd="http://www.w3.org/2001/XMLSchema"' +
+                '  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"' +
+                '   xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">' +
                 '   <soap:Body>' +
                 '<CreateAttachment xmlns="http://schemas.microsoft.com/exchange/services/2006/messages"' +
-                '        xmlns: t="http://schemas.microsoft.com/exchange/services/2006/types">' +
+                '        xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">' +
                 '<ParentItemId Id=' + item_id + ' ChangeKey=' + changeKey + ' />' +
                 '   <Attachments>' +
-                '     <t: ItemAttachment>' +
+                '     <t:ItemAttachment>' +
                 '        <t:Name>'+ 'An_item_attachment' + '</t:Name>' +
-                '        <t: Item>' +
-                '          <t: ItemId>' + item_id + '</t: ItemId >' +
-                '        </t: Item >' +
-                '      </t: ItemAttachment >' +
+                '        <t:Item>' +
+                '          <t:ItemId>' + item_id + '</t:ItemId >' +
+                '        </t:Item >' +
+                '      </t:ItemAttachment >' +
                 '    </Attachments >' +
                 '  </CreateAttachment >' +
                 ' </soap:Body >' +
