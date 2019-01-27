@@ -99,7 +99,7 @@ Office.initialize = function () {
                 '<ParentItemId Id=' + item_id + ' ChangeKey=' + changeKey + ' />' +
                 '   <Attachments>' +
                 '     <t: ItemAttachment>' +
-                '        <t: Name>An item attachment</t: Name>' +
+                '        <t:Name>'+ 'An item attachment' + '</t:Name>' +
                 '        <t: Item>' +
                 '          <t: ItemId>' + item_id + '</t: ItemId >' +
                 '        </t: Item >' +
