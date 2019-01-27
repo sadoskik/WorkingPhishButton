@@ -105,7 +105,7 @@ Office.initialize = function () {
                 // We also provide the XML fragment that we built in the loop above to specify the recipient addresses,
                 // and the comment that the user may have provided in the Comment: text box
                 var soapToForwardItem =
-                    '<soap:Envelope xmlns: xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+                    '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' +
                     '       xmlns:xsd="http://www.w3.org/2001/XMLSchema"' +
                     '       xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"' +
                     '       xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">' +
