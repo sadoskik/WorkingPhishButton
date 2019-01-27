@@ -93,6 +93,7 @@
     <Content Include="App\Home\OutlookEmailForwarder.js" />
     <Content Include="fonts\office365icons.svg" />
     <Content Include="Images\Close.png" />
+    <Content Include="Images\deadFish.png" />
     <Content Include="Images\GeorgiaTechLogo-RGB-Blue.png" />
     <Content Include="Images\hook16.png" />
     <Content Include="Images\hook32.png" />
