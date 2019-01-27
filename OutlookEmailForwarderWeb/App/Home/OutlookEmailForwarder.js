@@ -89,7 +89,8 @@ Office.initialize = function () {
                 }
 
                 changeKey = xmlDoc.getElementsByTagName("t:ItemId")[0].getAttribute("ChangeKey");
-
+                console.log('changeKey:' + changeKey);
+                console.log('item_id:' + item_id);
                 //var attachmentId = xmlDoc.getElementsByTagName("t:AttachmentId");
 
                 // Now that we have a ChangeKey value, we can use EWS to forward the mail item.
