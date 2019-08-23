@@ -68,7 +68,7 @@
             var xmlDoc;
 
             if (asyncResult.error != null) {
-                app.showNotification("EWS Status", asyncResult.error.message);
+                app.showNotification("1: EWS Status", asyncResult.error.message);
             }
             else {
                 var response = asyncResult.value;
@@ -139,7 +139,7 @@
             var xmlDoc;
 
             if (asyncResult.error != null) {
-                app.showNotification("EWS Status", asyncResult.error.message);
+                app.showNotification("2: EWS Status", asyncResult.error.message);
             }
             else {
                 var response = asyncResult.value;
@@ -169,7 +169,7 @@
                     }
                 }
                 else {
-                    app.showNotification("EWS Status", "The following error code was recieved: " + result);
+                    app.showNotification("3: EWS Status", "The following error code was recieved: " + result);
                 }
             }
         }
