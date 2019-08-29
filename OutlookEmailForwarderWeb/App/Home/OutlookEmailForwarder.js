@@ -166,7 +166,7 @@ var changeKey;
                     }
                 }
                 else {
-                    app.showNotification("EWS Status5", "The following error code was recieved: " + xmlDoc);
+                    app.showNotification("EWS Status5", "The following error code was recieved: " + response);
                 }
             }
         }
